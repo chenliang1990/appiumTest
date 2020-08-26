@@ -1,4 +1,5 @@
 from appium import webdriver  # 导入appium第三方包
+import time
 # 1. 打开app，获取手机的把柄
 desired_caps = {}
 desired_caps['platformName'] = 'Android'              # 打开什么平台的app，固定的 > 启动安卓平台
@@ -15,3 +16,10 @@ desired_caps['noReset'] = True                        # 使用缓存，避免重
 # http://localhost:4723/wd/hub : appium desktop提供的
 # desired_caps: 手机app信息的字典
 driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+
+time.sleep(5)
+# 没有办法定位元素，就点坐标
+driver.tap([(354,1088)])
+time.sleep(3)
+# 文本值定位
+driver.find_element_by_android_uiautomator('new UiSelector().text("我的")').click()
