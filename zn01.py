@@ -21,7 +21,7 @@ driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
 time.sleep(5)
 # 没有办法定位元素，就点坐标
 driver.tap([(354,1088)])
-time.sleep(3)
+time.sleep(5)
 # 文本值定位
 # driver.find_element_by_android_uiautomator('new UiSelector().text("我的")').click()
 my_btn = ("text","我的")
